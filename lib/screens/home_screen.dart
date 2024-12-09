@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/const/colors.dart';
 import 'package:my_portfolio/const/nav_items.dart';
+import 'package:my_portfolio/styles/style.dart';
+import 'package:my_portfolio/widgets/header_Mobile.dart';
+import 'package:my_portfolio/widgets/header_desktop.dart';
+import 'package:my_portfolio/widgets/site_logo.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,39 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
           //Main
           children: [
             //Main
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              height: 60,
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Colors.transparent, CustomColor.bgLight1]),
-                  borderRadius: BorderRadius.circular(100)),
-              child: Row(
-                children: [
-                  Text(
-                    'AHS',
-                    style: GoogleFonts.nunitoSans(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: CustomColor.yellowSecondary,
-                        decoration: TextDecoration.underline),
-                  ),
-                  const Spacer(),
-                  for (int i = 0; i < navTitles.length; i++)
-                    Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              navTitles[i],
-                              style: GoogleFonts.nunitoSans(
-                                  fontSize: 16,
-                                  color: CustomColor.whitePrimary),
-                            )))
-                ],
-              ),
-            ),
+            // HeaderDesktop(),
+            HeaderMobile(),
             //SKILLS
             Container(
               height: 500,
