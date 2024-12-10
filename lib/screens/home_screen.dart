@@ -7,6 +7,8 @@ import 'package:my_portfolio/styles/style.dart';
 import 'package:my_portfolio/widgets/drawer_mobile.dart';
 import 'package:my_portfolio/widgets/header_Mobile.dart';
 import 'package:my_portfolio/widgets/header_desktop.dart';
+import 'package:my_portfolio/widgets/main_Desktop.dart';
+import 'package:my_portfolio/widgets/main_mobile.dart';
 import 'package:my_portfolio/widgets/site_logo.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final screenWidth = screenSize.width;
+    final screenHeight = screenSize.height;
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
           key: scaffoldKey,
@@ -45,41 +48,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               else
                 HeaderDesktop(),
+              // MainDesktop(),
 
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                height: screenSize.height / 1.2,
-                constraints: const BoxConstraints(minHeight: 350.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Hello World'),
-                        Text(
-                          "Hi, \nI'm Abir Hasan\nFlutter developer",
-                          style: GoogleFonts.nunitoSans(
-                              fontSize: 30.0,
-                              fontWeight: FontWeight.bold,
-                              height: 1.5
-                              //this height is special, cause it makes some space in the line vertically
-                              ),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        ElevatedButton(
-                            onPressed: () {}, child: const Text('Get in touch'))
-                      ],
-                    ),
-                    Image.asset(
-                      'assets/images/bird.png',
-                      width: screenWidth / 2,
-                    )
-                  ],
-                ),
-              ),
+              if (constraints.maxWidth < kMinDesktopWidth)
+                MainMobile()
+              else
+                MainDesktop(),
+
               //SKILLS
               Container(
                 height: 500,
