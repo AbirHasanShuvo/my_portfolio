@@ -11,6 +11,8 @@ import 'package:my_portfolio/widgets/header_desktop.dart';
 import 'package:my_portfolio/widgets/main_Desktop.dart';
 import 'package:my_portfolio/widgets/main_mobile.dart';
 import 'package:my_portfolio/widgets/site_logo.dart';
+import 'package:my_portfolio/widgets/skill_desktop.dart';
+import 'package:my_portfolio/widgets/skills_mobile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -71,39 +73,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontWeight: FontWeight.bold,
                           color: CustomColor.whitePrimary),
                     ),
+
+                    const SizedBox(
+                      height: 50.0,
+                    ),
                     //platform and skills
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 450),
-                          child: Wrap(
-                            spacing: 5.0,
-                            runSpacing: 5.0,
-                            children: [
-                              for (int i = 0; i < platformItems.length; i++)
-                                Container(
-                                  width: 200,
-                                  decoration: BoxDecoration(
-                                      color: CustomColor.bgLight2,
-                                      borderRadius: BorderRadius.circular(5)),
-                                  child: ListTile(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        horizontal: 20.0, vertical: 10.0),
-                                    leading: Image.asset(
-                                      platformItems[i]['img'],
-                                      width: 26.0,
-                                    ),
-                                    title: Text(platformItems[i]['title']),
-                                  ),
-                                )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+                    // SkillDesktop()
+
+                    if (constraints.maxWidth < kMinDesktopWidth)
+                      const SkillsMobile()
+                    else
+                      const SkillDesktop()
                   ],
                 ),
               ),

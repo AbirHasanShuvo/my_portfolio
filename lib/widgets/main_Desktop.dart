@@ -33,7 +33,7 @@ class MainDesktop extends StatelessWidget {
               SizedBox(
                 width: 250,
                 child: ElevatedButton(
-                    onPressed: () {}, child: const Text('Get in touch')),
+                    onPressed: () {}, child:  Text('Get in touch', style: GoogleFonts.nunitoSans())),
               )
             ],
           ),

@@ -8,12 +8,14 @@ const List<Map> platformItems = [
 ];
 
 const List<Map> skillItems = [
+  {"img": "assets/images/c.png", "title": "C"},
+  {"img": "assets/images/java.png", "title": "JAVA"},
   {"img": "assets/images/flutter.png", "title": "Flutter"},
   {"img": "assets/images/dart.png", "title": "Dart"},
   {"img": "assets/images/html5.png", "title": "HTML"},
   {"img": "assets/images/css3.png", "title": "CSS3"},
-  {"img": "assets/images/java.png", "title": "JAVA"},
-  {"img": "assets/images/c.png", "title": "C"},
+
+
 ];
 
 const androidLogo = "assets/images/android.png";
