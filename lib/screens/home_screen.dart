@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/const/colors.dart';
+import 'package:my_portfolio/const/images.dart';
 import 'package:my_portfolio/const/nav_items.dart';
 import 'package:my_portfolio/const/size.dart';
 import 'package:my_portfolio/styles/style.dart';
@@ -57,9 +58,54 @@ class _HomeScreenState extends State<HomeScreen> {
 
               //SKILLS
               Container(
-                height: 500,
-                width: double.maxFinite,
-                color: Colors.blueGrey,
+                width: screenWidth,
+                padding: const EdgeInsets.fromLTRB(25, 20, 25, 60),
+                color: CustomColor.bgLight1,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'What can I do',
+                      style: GoogleFonts.nunitoSans(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                          color: CustomColor.whitePrimary),
+                    ),
+                    //platform and skills
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 450),
+                          child: Wrap(
+                            spacing: 5.0,
+                            runSpacing: 5.0,
+                            children: [
+                              for (int i = 0; i < platformItems.length; i++)
+                                Container(
+                                  width: 200,
+                                  decoration: BoxDecoration(
+                                      color: CustomColor.bgLight2,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: ListTile(
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        horizontal: 20.0, vertical: 10.0),
+                                    leading: Image.asset(
+                                      platformItems[i]['img'],
+                                      width: 26.0,
+                                    ),
+                                    title: Text(platformItems[i]['title']),
+                                  ),
+                                )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
               //PROJECTS
               Container(
